@@ -35,7 +35,7 @@ const AuthStateApp = () => {
                 
     var resBody;
     // make API call with parameters and use promises to get response
-    fetch("https://6ef5fi7poc.execute-api.us-east-1.amazonaws.com", requestOptions)
+    fetch("https://6ef5fi7poc.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
     .then(res => res.json())
     .then(data => resBody = data)     
     .then(() => document.getElementById('hPrinciple').innerHTML = JSON.parse(resBody.body).principle)
