@@ -39,20 +39,20 @@ const AuthStateApp = () => {
     .then(res => res.json())
     .then(data => resBody = data)     
     .then(() => document.getElementById('hPrinciple').innerHTML = JSON.parse(resBody.body).principle)
-    .then(() => document.getElementById('hDescription').innerHTML = JSON.parse(resBody.body).description)
-    .then(() => document.getElementById('pSituation').innerHTML = JSON.parse(resBody.body).situation)
-    .then(() => document.getElementById('pTask').innerHTML = JSON.parse(resBody.body).task)
-    .then(() => document.getElementById('pAction').innerHTML = JSON.parse(resBody.body).action)
-    .then(() => document.getElementById('pResult').innerHTML = JSON.parse(resBody.body).result)
+    .then(() => document.getElementById('pDescription').innerHTML = JSON.parse(resBody.body).description)
+    .then(() => document.getElementById('pSituation').innerHTML = JSON.parse(resBody.body).response.situation)
+    .then(() => document.getElementById('pTask').innerHTML = JSON.parse(resBody.body).response.task)
+    .then(() => document.getElementById('pAction').innerHTML = JSON.parse(resBody.body).response.action)
+    .then(() => document.getElementById('pResult').innerHTML = JSON.parse(resBody.body).response.result)
     .then(() => console.log(resBody))       
     .catch(error => console.log('error', error));
   }
 
-  return authState === AuthState.SignedIn && user ? (        
+  return authState === AuthState.SignedIn && user ? (      
       <div className="App">
-          <div>Hello, {user.username}</div>
+          <div><h3>Hello, {user.username}</h3></div>
           <form>
-            <label>Principle:</label>
+            <label>Leadership Principle:</label>
             <select id="sPrinciple" name="principles">
                 <option value="customerobsession">Customer Obsession</option>
                 <option value="ownership">Ownership</option>
@@ -73,12 +73,24 @@ const AuthStateApp = () => {
             </select>                    
             <button type="button" onClick={() => callAPI(document.getElementById('sPrinciple').value, '1')}>Get STAR response</button>
           </form>
-          <h1 id="hPrinciple"></h1>
-          <h2 id="hDescription"></h2>    
-          <p id="pSituation"></p>
-          <p id="pTask"></p>
-          <p id="pAction"></p>
-          <p id="pResult"></p>
+          
+          <h2 id="hPrinciple"></h2>
+          <i><p id="pDescription"></p></i>
+          <div class="situation">
+            <p><strong>Situation</strong></p><p id="pSituation"></p>
+          </div>
+
+          <div class="task">
+            <p><strong>Task</strong></p><p id="pTask"></p>
+          </div>
+
+          <div class="action">
+            <p><strong>Action</strong></p><p id="pAction"></p>
+          </div>
+
+          <div class="result">
+            <p><strong>Result</strong></p><p id="pResult"></p>
+          </div>
 
           <AmplifySignOut />
       </div>

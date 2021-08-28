@@ -1,0 +1,32 @@
+div {
+  margin-bottom: 15px;
+  padding: 4px 12px;
+}
+
+select, button {
+  color: #FF9900;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+.situation {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+}
+
+.task {
+  background-color: #ddffdd;
+  border-left: 6px solid #04AA6D;
+}
+
+.action {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+}
+
+
+.result {
+  background-color: #ffffcc;
+  border-left: 6px solid #ffeb3b;
+}
